@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const ghPages = process.env.DEPLOY_TARGET === "gh-pages";
+const withNextOptimizedImages = require("next-optimized-images");
 
-module.exports = nextConfig
+module.exports = withNextOptimizedImages({
+  target: "serverless",
+});
