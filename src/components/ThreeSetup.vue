@@ -1,5 +1,4 @@
 <script setup>
-//https://www.youtube.com/watch?v=cxAfmtwZUd8&t=1127s&ab_channel=AlvaroDevLabs
 import { ref, computed, onMounted, watch } from "vue";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
