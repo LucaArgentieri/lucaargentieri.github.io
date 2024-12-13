@@ -103,17 +103,12 @@ console.log("Github: %c https://github.com/LucaArgentieri", "color:white; backgr
 
 <template>
   <div
-    class="flex justify-center items-center flex-col gap-5 h-screen relative bg-transparent font-sans px-5 text-center"
-  >
+    class="flex justify-center items-center flex-col gap-5 h-[100svh] relative bg-transparent font-sans px-5 text-center">
     <h1 class="text-4xl font-bold">Ciao!</h1>
     <p class="text-2xl">
       I'm working at
-      <a
-        class="mix-blend-difference text-white"
-        href="http://display.design/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a class="mix-blend-difference text-white" href="http://display.design/" target="_blank"
+        rel="noopener noreferrer">
         display.design
       </a>
       as front-end developer.
