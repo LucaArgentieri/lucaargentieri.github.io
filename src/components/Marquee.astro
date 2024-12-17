@@ -1,0 +1,58 @@
+---
+const worlds = [
+    "Benvenuto",
+    "Welcome",
+    "Bienvenido",
+    "Bem-vindo",
+    "Добро пожаловать",
+    "Willkommen",
+    "Bienvenue",
+    "Hoşgeldiniz",
+    "Witaj",
+    "Ласкаво просимо",
+    "Benvenuto",
+    "Welcome",
+    "Bienvenido",
+    "Bem-vindo",
+    "Добро пожаловать",
+    "Willkommen",
+    "Bienvenue",
+    "Hoşgeldiniz",
+    "Witaj",
+    "Ласкаво просимо",
+];
+---
+
+<section>
+    <div class="marquee-text">
+        <div class="marquee-text-track">
+            {worlds.map((world) => <p>{world}</p>)}
+            {worlds.map((world) => <p aria-hidden="true">{world}</p>)}
+        </div>
+    </div>
+</section>
+
+<style scoped>
+    .marquee-text {
+        overflow: clip;
+    }
+
+    .marquee-text-track {
+        display: flex;
+        padding-left: 10px;
+        gap: 10px;
+        width: max-content;
+        animation: marquee-move-text var(--speed, 60s) linear infinite var(--direction, forwards);
+    }
+
+    .marquee-text-track p {
+        font-size: 20px;
+        color: theme("colors.accent");
+    }
+
+    @keyframes marquee-move-text {
+        to {
+            transform: translateX(-50%);
+        }
+    }
+</style>
