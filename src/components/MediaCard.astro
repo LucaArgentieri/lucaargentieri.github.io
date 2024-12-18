@@ -1,5 +1,27 @@
+---
+import link from "../assets/link.svg";
+
+const { class: className, type, href, src, srcAlt } = Astro.props;
+---
+
 <article
-    class="break-inside-avoid bg-darkgray rounded-32 flex-col-2 aspect-square w-full h-fit overflow-hidden inline-flex mt-10 [&>iframe]:w-full [&>img]:w-full [&>img]:object-cover"
+    class:list={[
+        className,
+        "break-inside-avoid bg-darkgray rounded-32 overflow-hidden inline-flex mt-10 group relative",
+    ]}
 >
-    <slot />
+    {type === "iframe" && <iframe src={src} class="w-full" />}
+    {type === "img" && <img src={src} alt={srcAlt} loading="lazy" class="w-full object-cover" />}
+    {
+        href && (
+            <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-black text-accent rounded-32 w-fit p-10 h-fit inline-flex gap-10 active:scale-95 [&>img]:w-20 group-hover:bottom-20 group-hover:opacity-100 opacity-0 absolute bottom-0 right-20 ease-in-out duration-300"
+            >
+                <img src={link.src} alt="External link icon" />
+            </a>
+        )
+    }
 </article>
