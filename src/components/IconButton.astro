@@ -1,0 +1,12 @@
+---
+const { href, icon, alt } = Astro.props;
+---
+
+<a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="bg-black text-accent rounded-32 w-fit p-10 h-fit inline-flex gap-10 break-inside-avoid active:scale-95 [&>img]:w-20"
+>
+    <img src={icon} alt={alt} />
+</a>

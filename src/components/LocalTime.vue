@@ -3,7 +3,6 @@ import { ref, onMounted, onUnmounted, computed } from 'vue';
 import sunIcon from '../assets/sun.svg';
 import moonIcon from '../assets/moon.svg';
 
-
 const currentTime = ref(new Date().toLocaleTimeString('en-US'));
 
 let intervalId = null;
@@ -19,15 +18,21 @@ onUnmounted(() => {
 });
 
 const setTimeIcon = computed(() => {
-    if (currentTime.value.includes('AM')) {
-        return {
-            src: sunIcon.src,
-            alt: 'Sun icon',
-        };
-    } else {
+    let time = currentTime.value.slice(0, 2);
+    const isPM = currentTime.value.includes('PM');
+    if (time.includes(':')) {
+        time = time.slice(0, 1);
+    }
+
+    if ((isPM && (time >= 6)) || (!isPM && (time < 6))) {
         return {
             src: moonIcon.src,
             alt: 'Moon icon',
+        };
+    } else {
+        return {
+            src: sunIcon.src,
+            alt: 'Sun icon',
         };
     }
 });

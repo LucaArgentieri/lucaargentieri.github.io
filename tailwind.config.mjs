@@ -10,6 +10,7 @@ export default {
 			darkgray: '#CCCCCC',
 		},
 		spacing: {
+			5: '5px',
 			10: '10px',
 			20: '20px',
 			40: '40px',

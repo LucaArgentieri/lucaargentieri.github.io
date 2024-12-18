@@ -9,7 +9,6 @@ const worlds = [
     "Bienvenue",
     "Hoşgeldiniz",
     "Witaj",
-    "Ласкаво просимо",
     "Benvenuto",
     "Welcome",
     "Bienvenido",
@@ -19,7 +18,6 @@ const worlds = [
     "Bienvenue",
     "Hoşgeldiniz",
     "Witaj",
-    "Ласкаво просимо",
 ];
 ---
 
@@ -42,11 +40,13 @@ const worlds = [
         padding-left: 10px;
         gap: 10px;
         width: max-content;
-        animation: marquee-move-text var(--speed, 60s) linear infinite var(--direction, forwards);
+        animation: marquee-move-text var(--speed, 60s) linear infinite
+            var(--direction, forwards);
     }
 
     .marquee-text-track p {
         font-size: 20px;
+        text-transform: uppercase;
         color: theme("colors.accent");
     }
 

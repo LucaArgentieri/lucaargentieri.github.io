@@ -1,52 +1,75 @@
 ---
+import github from "../assets/github.svg";
+import x from "../assets/x.svg";
+import mail from "../assets/mail.svg";
+
 import Layout from "../layouts/Layout.astro";
-import Marquee from "../components/Marquee.astro";
+import TopMarquee from "../components/TopMarquee.astro";
+import BottomMarquee from "../components/BottomMarquee.astro";
 import LocalTime from "../components/LocalTime.vue";
 import TextCard from "../components/TextCard.astro";
 import MediaCard from "../components/MediaCard.astro";
+import IconButton from "../components/IconButton.astro";
 ---
 
 <Layout>
-	<main class="flex flex-col gap-20">
-		<Marquee />
-		<section class="columns-md 2xl:columns-xl mx-10 gap-10">
+	<TopMarquee />
+	<main class="columns-md 2xl:columns-xl m-10 gap-10">
+		<div class="flex items-center flex-wrap gap-5">
 			<LocalTime client:idle />
-			<TextCard title="What is Astro?">
-				<p>
-					Astro is a new kind of static site generator that delivers
-					lightning-fast performance and modern developer ergonomics.
-					It's the first framework that lets you build fully static
-					sites with dynamic components and features. Astro sites are
-					fast by default — they load instantly and have the best
-					possible performance. Astro is built for modern JavaScript
-					developers, with a best-in-class developer experience and a
-					focus on modularity and performance.
-				</p>
-			</TextCard>
-			<MediaCard>
-				<iframe
-					src="https://luca-argentieri-threejs.netlify.app/experiments/rapier-test/"
-				></iframe>
-			</MediaCard>
-			<MediaCard>
-				<iframe src="https://paint-your-pumpkin.netlify.app/"></iframe>
-			</MediaCard>
-			<MediaCard>
-				<img
-					src="https://images.unsplash.com/photo-1734329403517-d463a131f7b0?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-					alt=""
-				/>
-			</MediaCard>
-			<TextCard title="What is Astro?">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Optio, sed?
-				</p>
-			</TextCard>
-
-			<MediaCard>
-				<iframe src="https://paint-your-pumpkin.netlify.app/"></iframe>
-			</MediaCard>
-		</section>
+			<IconButton
+				icon={github.src}
+				alt="GitHub Icon"
+				href="https://github.com/LucaArgentieri"
+			/>
+			<IconButton
+				icon={x.src}
+				alt="Twitter / X Icon"
+				href="https://x.com/luca_argentieri"
+			/>
+			<IconButton
+				icon={mail.src}
+				alt="Mail Icon"
+				href="mailto:lucaargentieri98@gmail.com"
+			/>
+		</div>
+		<TextCard title="What is Astro?">
+			<p>
+				Astro is a new kind of static site generator that delivers
+				lightning-fast performance and modern developer ergonomics. It's
+				the first framework that lets you build fully static sites with
+				dynamic components and features. Astro sites are fast by default
+				— they load instantly and have the best possible performance.
+				Astro is built for modern JavaScript developers, with a
+				best-in-class developer experience and a focus on modularity and
+				performance.
+			</p>
+		</TextCard>
+		<MediaCard>
+			<iframe
+				src="https://luca-argentieri-threejs.netlify.app/experiments/rapier-test/"
+			></iframe>
+		</MediaCard>
+		<MediaCard>
+			<iframe src="https://paint-your-pumpkin.netlify.app/"></iframe>
+		</MediaCard>
+		<MediaCard>
+			<img
+				src="https://images.unsplash.com/photo-1734329403517-d463a131f7b0?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				alt=""
+			/>
+		</MediaCard>
+		<TextCard title="What is Astro?">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio,
+				sed?
+			</p>
+		</TextCard>
+		<MediaCard>
+			<iframe
+				src="https://luca-argentieri-threejs.netlify.app/experiments/sora"
+			></iframe>
+		</MediaCard>
 	</main>
+	<BottomMarquee />
 </Layout>
