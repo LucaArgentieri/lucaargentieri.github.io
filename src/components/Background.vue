@@ -1,5 +1,4 @@
 <script setup>
-//https://www.youtube.com/watch?v=cxAfmtwZUd8&t=1127s&ab_channel=AlvaroDevLabs
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -79,8 +78,8 @@ const loop = () => {
     const elapsedTime = clock.getElapsedTime();
 
     if (model) {
-        model.rotation.y += elapsedTime * 0.0001;
-        model.rotation.x += elapsedTime * 0.0001;
+        model.rotation.y += 0.001;
+        model.rotation.x += 0.001;
 
     }
 
@@ -91,7 +90,7 @@ const loop = () => {
 </script>
 
 <template>
-    <div class="fixed left-0 top-0 w-full h-full">
+    <div class="fixed left-0 top-0 w-full h-full -z-10">
         <canvas ref="canvasRef" />
     </div>
 </template>

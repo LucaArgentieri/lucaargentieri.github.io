@@ -10,8 +10,17 @@ const { class: className, type, href, src, srcAlt } = Astro.props;
         "break-inside-avoid bg-darkgray rounded-32 overflow-hidden inline-flex mt-10 group relative",
     ]}
 >
-    {type === "iframe" && <iframe src={src} class="w-full" />}
-    {type === "img" && <img src={src} alt={srcAlt} loading="lazy" class="w-full object-cover" />}
+    {type === "iframe" && <iframe src={src} loading="lazy" class="w-full" />}
+    {
+        type === "img" && (
+            <img
+                src={src}
+                alt={srcAlt}
+                loading="lazy"
+                class="w-full object-cover"
+            />
+        )
+    }
     {
         href && (
             <a
