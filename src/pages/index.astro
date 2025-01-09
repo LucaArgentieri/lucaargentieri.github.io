@@ -10,12 +10,12 @@ import LocalTime from "../components/LocalTime.vue";
 import TextCard from "../components/TextCard.astro";
 import MediaCard from "../components/MediaCard.astro";
 import IconButton from "../components/IconButton.astro";
-import Background from "../components/Background.vue";
+// import Background from "../components/Background.vue";
 import WarningButton from "../components/WarningButton.vue";
 ---
 
 <Layout>
-	<Background client:media={"(min-width:1024px)"} />
+	<!-- <Background client:media={"(min-width:1024px)"} /> -->
 	<div class="backdrop-blur-sm" data-js="backdrop">
 		<TopMarquee />
 		<main class="columns-md 2xl:columns-lg m-10 gap-10">
@@ -36,7 +36,7 @@ import WarningButton from "../components/WarningButton.vue";
 					alt="Mail Icon"
 					href="mailto:lucaargentieri98@gmail.com"
 				/>
-				<WarningButton client:media={"(min-width:1024px)"} />
+				<!-- <WarningButton client:media={"(min-width:1024px)"} /> -->
 			</nav>
 			<TextCard title="Hello World">
 				<div>
@@ -56,9 +56,10 @@ import WarningButton from "../components/WarningButton.vue";
 			<MediaCard
 				class="aspect-square w-full h-fit"
 				type="iframe"
-				href="https://www.iperspazio.xyz/"
-				src="https://www.iperspazio.xyz/"
+				href="https://display.design/"
+				src="https://display.design/"
 			/>
+
 			<MediaCard
 				class="aspect-square w-full h-fit"
 				type="iframe"
@@ -68,9 +69,10 @@ import WarningButton from "../components/WarningButton.vue";
 			<MediaCard
 				class="aspect-square w-full h-fit"
 				type="iframe"
-				src="https://paint-your-pumpkin.netlify.app/"
-				href="https://paint-your-pumpkin.netlify.app/"
+				href="https://www.shadertoy.com/view/43tSR7"
+				src="https://www.shadertoy.com/embed/43tSR7?gui=true&t=10&paused=false&muted=true"
 			/>
+
 			<TextCard title="Where you are">
 				<p>
 					This is my portfolio, webiste, call it whatever you want.
@@ -79,17 +81,31 @@ import WarningButton from "../components/WarningButton.vue";
 					live.
 				</p>
 			</TextCard>
+			<MediaCard
+				class="aspect-square w-full h-fit"
+				type="iframe"
+				src="https://paint-your-pumpkin.netlify.app/"
+				href="https://paint-your-pumpkin.netlify.app/"
+			/>
 
 			<MediaCard
 				class="aspect-square w-full h-fit"
 				type="iframe"
 				src="https://luca-argentieri-threejs.netlify.app/experiments/pixeled-glyph/"
 			/>
+
 			<MediaCard
 				class="aspect-square w-full h-fit"
 				type="iframe"
-				src="https://luca-argentieri-threejs.netlify.app/experiments/repulsion-effect/"
-				href="https://luca-argentieri-threejs.netlify.app/experiments/repulsion-effect/"
+				src="https://www.shadertoy.com/embed/M3KcDw?gui=false&t=10&paused=false&muted=true"
+				href="https://www.shadertoy.com/view/M3KcDw"
+			/>
+
+			<MediaCard
+				class="aspect-square w-full h-fit"
+				type="iframe"
+				src="https://www.iperspazio.xyz/"
+				href="https://www.iperspazio.xyz/"
 			/>
 			<MediaCard
 				class="aspect-square w-full h-fit"

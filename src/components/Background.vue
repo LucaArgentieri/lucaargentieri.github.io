@@ -1,8 +1,6 @@
 <script setup>
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { useWindowSize } from "@vueuse/core";
 import { ref, computed, watch, onMounted } from 'vue'
 
@@ -12,32 +10,50 @@ const aspectRatio = computed(() => width.value / height.value);
 
 let renderer = null;
 let cameraControls = null;
-let model = null;
 const clock = new THREE.Clock();
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, aspectRatio.value, 0.1, 1000);
-camera.position.z = 3;
+camera.position.z = 5;
 scene.add(camera);
 
-const ambientLight = new THREE.AmbientLight(0xE53D00, 5);
-scene.add(ambientLight);
+const material = new THREE.ShaderMaterial({
+    uniforms: {
+        time: { type: "f", value: 1.0 },
+        resolution: { value: new THREE.Vector2() }
+    },
+    vertexShader: `
+      varying vec2 vUv;
+      void main() {
+        vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+      }
+      `,
+    fragmentShader: `
+            uniform float time;
+            varying vec2 vUv;
 
-const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
+            void main(){
+              vec2 coord = 4.0 * vUv.xy;
 
-const gltfLoader = new GLTFLoader();
-gltfLoader.setDRACOLoader(dracoLoader);
+            for(int n = 1; n < 8; n++){
+                float i = float(n);
+                coord+=vec2(.3/ i * sin(i * coord.y+time+10. * i)+.10, .01 + i * sin(coord.x+time+10. * i) + 1.);
+            }
 
+            coord += vec2(0.3 /cos(coord.y + time * .1), 0.1 / sin(coord.x + time * 1.));
+            vec3 color = vec3(0.894, 0.894 / sin(coord.y), 0.894);
+            gl_FragColor = vec4(color, 1.);
+            }`,
 
-gltfLoader.load(
-    "/model/scene.gltf",
-    (gltf) => {
-        model = gltf.scene;
-        scene.add(model);
-    }
+});
+
+const cube = new THREE.Mesh(
+    new THREE.PlaneGeometry(2, 1),
+    material
 );
 
+scene.add(cube);
 
 const updateCamera = () => {
     camera.aspect = aspectRatio.value;
@@ -75,13 +91,7 @@ onMounted(() => {
 });
 
 const loop = () => {
-    const elapsedTime = clock.getElapsedTime();
-
-    if (model) {
-        model.rotation.y += 0.001;
-        model.rotation.x += 0.001;
-
-    }
+    material.uniforms.time.value = clock.getElapsedTime() * 0.1;
 
     cameraControls.update();
     renderer.render(scene, camera);

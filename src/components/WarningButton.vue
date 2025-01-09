@@ -20,12 +20,8 @@ const handleClick = () => {
     });
 
     backdrop.classList.toggle('backdrop-blur-sm')
-
     articlesVisible.value = !articlesVisible.value;
-
 };
-
-
 </script>
 
 
