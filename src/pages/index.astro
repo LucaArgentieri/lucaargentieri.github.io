@@ -21,29 +21,15 @@ import WarningButton from "../components/WarningButton.vue";
 		<main class="columns-md 2xl:columns-lg m-10 gap-10">
 			<nav class="flex items-center flex-wrap gap-5 break-inside-avoid">
 				<LocalTime client:load />
-				<IconButton
-					icon={github.src}
-					alt="GitHub Icon"
-					href="https://github.com/LucaArgentieri"
-				/>
-				<IconButton
-					icon={x.src}
-					alt="Twitter / X Icon"
-					href="https://x.com/luca_argentieri"
-				/>
-				<IconButton
-					icon={mail.src}
-					alt="Mail Icon"
-					href="mailto:lucaargentieri98@gmail.com"
-				/>
+				<IconButton icon={github.src} alt="GitHub Icon" href="https://github.com/LucaArgentieri" />
+				<IconButton icon={x.src} alt="Twitter / X Icon" href="https://x.com/luca_argentieri" />
+				<IconButton icon={mail.src} alt="Mail Icon" href="mailto:lucaargentieri98@gmail.com" />
 				<!-- <WarningButton client:media={"(min-width:1024px)"} /> -->
 			</nav>
-			<TextCard title="Hello World">
+			<TextCard title="Hello World!">
 				<div>
-					I'm <h1 class="inline">
-						Luca Argentieri, frontend developer
-					</h1> passionate about mastering HTML, CSS, and JS, I'm currently
-					working at
+					I'm <h1 class="inline">Luca Argentieri, frontend developer</h1> passionate about mastering
+					HTML, CSS, and JS, I'm currently working at
 					<a
 						href="https://display.design/"
 						target="_blank"
@@ -63,22 +49,33 @@ import WarningButton from "../components/WarningButton.vue";
 			<MediaCard
 				class="aspect-square w-full h-fit"
 				type="iframe"
-				href="https://github.com/LucaArgentieri/windows98"
-				src="https://windows98-portfolio.netlify.app/"
+				href="https://editor.p5js.org/LucaArgentieri/full/Sa8TtzULR"
+				src="https://editor.p5js.org/LucaArgentieri/full/Sa8TtzULR"
 			/>
+
+			<!-- <MediaCard
+				class="aspect-square w-1/3 h-fit"
+				type="iframe"
+				src="https://luca-argentieri-threejs.netlify.app/experiments/pixeled-glyph/"
+			/> -->
 			<MediaCard
-				class="aspect-square w-full h-fit"
+				class="aspect-video w-full h-fit"
 				type="iframe"
 				href="https://www.shadertoy.com/view/43tSR7"
-				src="https://www.shadertoy.com/embed/43tSR7?gui=true&t=10&paused=false&muted=true"
+				src="https://www.shadertoy.com/embed/43tSR7?gui=false&t=10&paused=false&muted=true"
+			/>
+			<MediaCard
+				class="aspect-video w-full h-fit"
+				type="iframe"
+				src="https://www.shadertoy.com/embed/M3KcDw?gui=false&t=10&paused=false&muted=true"
+				href="https://www.shadertoy.com/view/M3KcDw"
 			/>
 
 			<TextCard title="Where you are">
 				<p>
-					This is my portfolio, webiste, call it whatever you want.
-					It's the place where I share a little portion of my work and
-					experiments. Feel free to explore it but be careful, it's
-					live.
+					This is my portfolio, webiste, call it whatever you want. It's the place where I share a
+					little portion of my work and experiments. Feel free to explore it but be careful, he
+					likes to change.
 				</p>
 			</TextCard>
 			<MediaCard
@@ -86,19 +83,6 @@ import WarningButton from "../components/WarningButton.vue";
 				type="iframe"
 				src="https://paint-your-pumpkin.netlify.app/"
 				href="https://paint-your-pumpkin.netlify.app/"
-			/>
-
-			<MediaCard
-				class="aspect-square w-full h-fit"
-				type="iframe"
-				src="https://luca-argentieri-threejs.netlify.app/experiments/pixeled-glyph/"
-			/>
-
-			<MediaCard
-				class="aspect-square w-full h-fit"
-				type="iframe"
-				src="https://www.shadertoy.com/embed/M3KcDw?gui=false&t=10&paused=false&muted=true"
-				href="https://www.shadertoy.com/view/M3KcDw"
 			/>
 
 			<MediaCard
