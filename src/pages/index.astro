@@ -19,7 +19,7 @@ import IconButton from "../components/IconButton.astro";
 	<div class="backdrop-blur-sm" data-js="backdrop">
 		<TopMarquee />
 		<main class="columns-md 2xl:columns-lg m-10 gap-10">
-			<nav class="flex items-center flex-wrap gap-5 break-inside-avoid">
+			<nav class="flex items-center flex-wrap gap-5 break-inside-avoid mb-5">
 				<LocalTime client:load />
 				<IconButton icon={github.src} alt="GitHub Icon" href="https://github.com/LucaArgentieri" />
 				<IconButton icon={x.src} alt="Twitter / X Icon" href="https://x.com/luca_argentieri" />
@@ -39,27 +39,30 @@ import IconButton from "../components/IconButton.astro";
 					> exploring new libraries, frameworks and technologies.
 				</div>
 			</TextCard>
-			<MediaCard
-				class="aspect-square w-full h-fit"
-				type="iframe"
-				title="Display Studio"
-				href="https://display.design/"
-				src="https://display.design/"
-			/>
-
-			<MediaCard
-				class="aspect-square w-full h-fit"
-				type="iframe"
-				title="p5.js"
-				href="https://editor.p5js.org/LucaArgentieri/full/Sa8TtzULR"
-				src="https://editor.p5js.org/LucaArgentieri/full/Sa8TtzULR"
-			/>
+			<div class="my-5">
+				<iframe
+					style="border-radius:12px"
+					src="https://open.spotify.com/embed/track/3sK8wGT43QFpWrvNQsrQya?utm_source=generator"
+					width="100%"
+					height="152"
+					frameBorder="0"
+					allowfullscreen=""
+					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+					loading="lazy"></iframe>
+			</div>
 			<MediaCard
 				class="aspect-video w-full h-fit"
 				type="iframe"
 				title="shadertoy expriment #1"
 				href="https://www.shadertoy.com/view/43tSR7"
 				src="https://www.shadertoy.com/embed/43tSR7?gui=false&t=10&paused=false&muted=true"
+			/>
+			<MediaCard
+				class="aspect-square w-full h-fit"
+				type="iframe"
+				title="p5.js"
+				href="https://editor.p5js.org/LucaArgentieri/full/0JRojgU9V"
+				src="https://editor.p5js.org/LucaArgentieri/full/0JRojgU9V"
 			/>
 			<MediaCard
 				class="aspect-video w-full h-fit"

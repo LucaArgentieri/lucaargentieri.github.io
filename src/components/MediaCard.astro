@@ -7,10 +7,10 @@ const { class: className, type, href, title, src, srcAlt } = Astro.props;
 <article
     class:list={[
         className,
-        "break-inside-avoid bg-darkgray rounded-32 overflow-hidden inline-flex mt-10 group relative",
+        "break-inside-avoid bg-darkgray rounded-[.75rem] overflow-hidden inline-flex my-5 group relative",
     ]}
 >
-    {type === "iframe" && <iframe src={src} title={title} loading="lazy" class="w-full" />}
+    {type === "iframe" && <iframe src={src} title={title} loading="lazy" class="w-full overflow-hidden" />}
     {type === "img" && <img src={src} alt={srcAlt} loading="lazy" class="w-full object-cover" />}
     {
         href && (
@@ -18,7 +18,7 @@ const { class: className, type, href, title, src, srcAlt } = Astro.props;
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-black text-accent rounded-32 w-fit p-10 h-fit inline-flex gap-10 active:scale-95 [&>img]:w-20 group-hover:bottom-20 group-hover:opacity-100 opacity-0 absolute bottom-0 right-20 ease-in-out duration-300"
+                class="bg-black text-accent rounded-[.75rem] w-fit p-10 h-fit inline-flex gap-10 active:scale-95 [&>img]:w-20 group-hover:bottom-20 group-hover:opacity-100 opacity-0 absolute bottom-0 right-20 ease-in-out duration-300"
             >
                 <img src={link.src} alt="External link icon" />
             </a>

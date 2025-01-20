@@ -2,9 +2,7 @@
 const { title } = Astro.props;
 ---
 
-<article
-    class="bg-darkgray p-40 rounded-32 w-full h-fit mt-10 inline-flex flex-col break-inside-avoid"
->
+<article class="bg-darkgray p-40 rounded-[.75rem] w-full h-fit my-5 inline-flex flex-col break-inside-avoid">
     <h2 class="uppercase text-accent">{title}</h2>
     <slot />
 </article>

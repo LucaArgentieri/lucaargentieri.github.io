@@ -27,7 +27,7 @@ const handleClick = () => {
 
 <template>
     <button ref="buttonRef" @click="handleClick"
-        class="bg-black text-accent rounded-32 w-fit p-10 h-fit inline-flex gap-10 break-inside-avoid active:scale-95 [&>img]:w-20 max-lg:hidden">
+        class="bg-black text-accent rounded-[.75rem] w-fit p-10 h-fit inline-flex gap-10 break-inside-avoid active:scale-95 [&>img]:w-20 max-lg:hidden">
         <img :src="warning.src" alt="warning" />
     </button>
 </template>

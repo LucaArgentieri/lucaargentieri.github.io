@@ -39,7 +39,8 @@ const setTimeIcon = computed(() => {
 </script>
 
 <template>
-    <article class="bg-black text-accent rounded-32 w-fit px-20 py-10 h-fit inline-flex gap-10 break-inside-avoid">
+    <article
+        class="bg-black text-accent rounded-[.75rem] w-fit px-20 py-10 h-fit inline-flex gap-10 break-inside-avoid">
         <time :datetime="currentTime">
             {{ currentTime }}
         </time>
