@@ -16,29 +16,28 @@ import pypPreview from "../assets/preview/pyp.svg";
 ---
 
 <Layout>
-	<div class="backdrop-blur-sm" data-js="backdrop">
-		<TopMarquee />
-		<main class="columns-md 2xl:columns-lg m-10 gap-10">
-			<nav class="flex items-center flex-wrap gap-5 break-inside-avoid mb-5">
-				<LocalTime client:load />
-				<IconButton icon={github.src} alt="GitHub Icon" href="https://github.com/LucaArgentieri" />
-				<IconButton icon={x.src} alt="Twitter / X Icon" href="https://x.com/luca_argentieri" />
-				<IconButton icon={mail.src} alt="Mail Icon" href="mailto:lucaargentieri98@gmail.com" />
-			</nav>
-			<TextCard title="Hello World!">
-				<div>
-					I'm <h1 class="inline">Luca Argentieri, frontend developer</h1> passionate about mastering
-					HTML, CSS, and JS, I'm currently working at
-					<a
-						href="https://display.design/"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="underline decoration-accent hover:decoration-black decoration-dotted"
-						>display.studio</a
-					> exploring new libraries, frameworks and technologies.
-				</div>
-			</TextCard>
-			<div class="my-5">
+  <div class="backdrop-blur-sm" data-js="backdrop">
+    <TopMarquee />
+    <main class="columns-md 2xl:columns-lg m-10 gap-10">
+      <nav class="flex items-center flex-wrap gap-5 break-inside-avoid mb-5">
+        <LocalTime client:load />
+        <IconButton icon={github.src} alt="GitHub Icon" href="https://github.com/LucaArgentieri" />
+        <IconButton icon={x.src} alt="Twitter / X Icon" href="https://x.com/luca_argentieri" />
+        <IconButton icon={mail.src} alt="Mail Icon" href="mailto:lucaargentieri98@gmail.com" />
+      </nav>
+      <TextCard title="Hello World!">
+        <div>
+          I'm <h1 class="inline">Luca Argentieri, frontend developer</h1> passionate about mastering HTML, CSS,
+          and JS, I'm currently working at
+          <a
+            href="https://display.design/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline decoration-accent hover:decoration-black decoration-dotted">display.studio</a
+          > exploring new libraries, frameworks and technologies.
+        </div>
+      </TextCard>
+      <!-- <div class="my-5">
 				<iframe
 					style="border-radius:12px"
 					src="https://open.spotify.com/embed/track/3sK8wGT43QFpWrvNQsrQya?utm_source=generator"
@@ -48,70 +47,69 @@ import pypPreview from "../assets/preview/pyp.svg";
 					allowfullscreen=""
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 					loading="lazy"></iframe>
-			</div>
-			<MediaCard
-				client:visible
-				class="aspect-video w-full h-fit"
-				type="iframe"
-				title="shadertoy expriment #1"
-				href="https://www.shadertoy.com/view/43tSR7"
-				src="https://www.shadertoy.com/embed/43tSR7?gui=false&t=10&paused=false&muted=true"
-			/>
-			<MediaCard
-				client:visible
-				class="aspect-square w-full h-fit"
-				type="iframe"
-				title="p5.js"
-				href="https://editor.p5js.org/LucaArgentieri/full/0JRojgU9V"
-				src="https://editor.p5js.org/LucaArgentieri/full/0JRojgU9V"
-			/>
-			<MediaCard
-				client:visible
-				class="aspect-video w-full h-fit"
-				type="iframe"
-				title="shadertoy expriment #2"
-				src="https://www.shadertoy.com/embed/M3KcDw?gui=false&t=10&paused=false&muted=true"
-				href="https://www.shadertoy.com/view/M3KcDw"
-			/>
-			<TextCard title="Where you are">
-				<p>
-					This is my portfolio, webiste, call it whatever you want. It's the place where I share a
-					little portion of my work and experiments. Feel free to explore it but be careful, he
-					likes to change.
-				</p>
-			</TextCard>
-			<MediaCard
-				client:visible
-				class="aspect-square w-full h-fit"
-				type="iframe"
-				title="Paint your pumpkin"
-				previewSrc={pypPreview.src}
-				previewAlt="Painy yout pumpking preview image"
-				src="https://paint-your-pumpkin.netlify.app/"
-				href="https://paint-your-pumpkin.netlify.app/"
-			/>
+			</div> -->
+      <MediaCard
+        client:visible
+        class="aspect-video w-full h-fit"
+        type="iframe"
+        title="shadertoy expriment #1"
+        href="https://www.shadertoy.com/view/43tSR7"
+        src="https://www.shadertoy.com/embed/43tSR7?gui=false&t=10&paused=false&muted=true"
+      />
+      <MediaCard
+        client:visible
+        class="aspect-square w-full h-fit"
+        type="iframe"
+        title="p5.js"
+        href="https://editor.p5js.org/LucaArgentieri/full/0JRojgU9V"
+        src="https://editor.p5js.org/LucaArgentieri/full/0JRojgU9V"
+      />
+      <MediaCard
+        client:visible
+        class="aspect-video w-full h-fit"
+        type="iframe"
+        title="shadertoy expriment #2"
+        src="https://www.shadertoy.com/embed/M3KcDw?gui=false&t=10&paused=false&muted=true"
+        href="https://www.shadertoy.com/view/M3KcDw"
+      />
+      <TextCard title="Where you are">
+        <p>
+          This is my portfolio, webiste, call it whatever you want. It's the place where I share a little
+          portion of my work and experiments. Feel free to explore it but be careful, he likes to change.
+        </p>
+      </TextCard>
+      <MediaCard
+        client:visible
+        class="aspect-square w-full h-fit"
+        type="iframe"
+        title="Paint your pumpkin"
+        previewSrc={pypPreview.src}
+        previewAlt="Painy yout pumpking preview image"
+        src="https://paint-your-pumpkin.netlify.app/"
+        href="https://paint-your-pumpkin.netlify.app/"
+      />
 
-			<MediaCard
-				client:visible
-				class="aspect-square w-full h-fit"
-				type="iframe"
-				title="iperspazio website"
-				previewSrc="https://www.iperspazio.xyz/Share-IMG_iperspazio.jpg"
-				previewAlt="Iperspazio preview image"
-				src="https://www.iperspazio.xyz/"
-				href="https://www.iperspazio.xyz/"
-			/>
-			<MediaCard
-				client:visible
-				class="aspect-square w-full h-fit"
-				type="iframe"
-				title="404 display design error page"
-				previewSrc={display404Preview.src}
-				previewAlt="display 404 preview image"
-				href="https://404-display-design.netlify.app/"
-				src="https://404-display-design.netlify.app/"
-			/>
-		</main>
-		<BottomMarquee />
-	</div>
+      <MediaCard
+        client:visible
+        class="aspect-square w-full h-fit"
+        type="iframe"
+        title="iperspazio website"
+        previewSrc="https://www.iperspazio.xyz/Share-IMG_iperspazio.jpg"
+        previewAlt="Iperspazio preview image"
+        src="https://www.iperspazio.xyz/"
+        href="https://www.iperspazio.xyz/"
+      />
+      <MediaCard
+        client:visible
+        class="aspect-square w-full h-fit"
+        type="iframe"
+        title="404 display design error page"
+        previewSrc={display404Preview.src}
+        previewAlt="display 404 preview image"
+        href="https://404-display-design.netlify.app/"
+        src="https://404-display-design.netlify.app/"
+      />
+    </main>
+    <BottomMarquee />
+  </div>
 </Layout>
