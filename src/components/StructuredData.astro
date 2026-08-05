@@ -1,0 +1,30 @@
+---
+import { person, projects } from '../data/site';
+
+const siteURL = Astro.site?.toString() ?? '';
+const avatarURL = new URL(person.avatar, Astro.site).toString();
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "ProfilePage",
+	"mainEntity": {
+		"@type": "Person",
+		"name": person.name,
+		"jobTitle": person.role,
+		"image": avatarURL,
+		"url": siteURL,
+		"sameAs": [
+			person.links.github,
+			person.links.linkedin
+		],
+		"description": person.bio[0]
+	},
+	"workExample": projects.map(project => ({
+		"@type": "CreativeWork",
+		"name": project.title,
+		"description": project.description || project.subtitle,
+		"url": project.href,
+		"keywords": project.technologies
+	}))
+})} />

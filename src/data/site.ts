@@ -40,28 +40,28 @@ export const projects: Project[] = [
 		subtitle: 'B2B Website',
 		meta: 'Display Studio · 2025',
 		technologies: 'Nuxt, Sanity CMS, Supabase',
-		href: '#',
+		href: 'https://gimatic.com',
 	},
 	{
 		title: 'Universal Music Italia: Shop Online',
 		subtitle: 'E-commerce Development',
 		meta: 'Display Studio · 2025',
 		technologies: 'Shopify',
-		href: '#',
+		href: 'https://shop.universalmusic.it/',
 	},
 	{
 		title: 'Alessi',
 		subtitle: 'E-commerce Development',
 		meta: 'Display Studio · 2025',
 		technologies: 'Shopify',
-		href: '#',
+		href: 'https://alessi.com/',
 	},
 	{
 		title: 'Politecnico di Milano (7 Departments)',
 		subtitle: 'UI Components Library, Website, Reserved area',
 		meta: 'Display Studio · 2025',
 		technologies: 'Nuxt, Sanity CMS',
-		href: '#',
+		href: 'https://www.dipartimentodesign.polimi.it/',
 		description:
 			'Developed departments: DDD, FISI, DASTU, DABC, DMECC, DAER, DIG. The project consists of three layers: UI, backend, and frontend. The UI is divided into the website UI and the private area UI, both shared by all departments. The backend is built with Sanity CMS. The frontend connects everything together.',
 	},
@@ -70,7 +70,7 @@ export const projects: Project[] = [
 		subtitle: 'Frontend & CMS',
 		meta: 'Display Studio · 2025',
 		technologies: 'Nuxt, Sanity CMS',
-		href: '#',
+		href: 'https://acquafiuggi.com/',
 	},
 ];
 

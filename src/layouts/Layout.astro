@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import StructuredData from '../components/StructuredData.astro';
 
 interface Props {
 	title?: string;
@@ -10,6 +11,9 @@ const {
 	title = 'Luca Argentieri',
 	description = 'Senior Frontend Developer. I build fast, well-crafted web experiences with Nuxt, Sanity and Shopify.',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL('/og-image.png', Astro.site);
 ---
 
 <!doctype html>
@@ -26,14 +30,17 @@ const {
 		<meta name="description" content={description} />
 		<meta name="author" content="Luca Argentieri" />
 		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonicalURL} />
 
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:image" content="/og-image.png" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content={ogImageURL} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageURL} />
 
 		<script is:inline>
 			(() => {
@@ -47,14 +54,18 @@ const {
 				document.documentElement.dataset.theme = theme;
 			})();
 		</script>
+
+		<StructuredData />
 	</head>
 	<body>
 		<div
+			aria-hidden="true"
 			class="pointer-events-none fixed inset-x-0 top-0 z-50 h-20 bg-gradient-to-b from-black/10 to-transparent backdrop-blur-3xl [mask-image:linear-gradient(to_bottom,black,transparent)] dark:from-black/50"
 		>
 		</div>
 		<slot />
 		<div
+			aria-hidden="true"
 			class="pointer-events-none fixed inset-x-0 bottom-0 z-50 h-20 bg-gradient-to-t from-black/10 to-transparent backdrop-blur-3xl [mask-image:linear-gradient(to_top,black,transparent)] dark:from-black/50"
 		>
 		</div>
