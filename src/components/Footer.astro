@@ -1,0 +1,25 @@
+---
+import { person } from '../data/site';
+---
+
+<footer class="flex flex-wrap justify-center gap-5">
+	<a class="text-meta text-fg-muted underline underline-offset-4 hover:opacity-60" href={`mailto:${person.links.email}`}>
+		email
+	</a>
+	<a
+		class="text-meta text-fg-muted underline underline-offset-4 hover:opacity-60"
+		href={person.links.github}
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		github
+	</a>
+	<a
+		class="text-meta text-fg-muted underline underline-offset-4 hover:opacity-60"
+		href={person.links.linkedin}
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		linkedin
+	</a>
+</footer>

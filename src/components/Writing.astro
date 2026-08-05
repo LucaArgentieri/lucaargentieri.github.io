@@ -1,0 +1,28 @@
+---
+import { writing } from '../data/site';
+---
+
+{
+	writing.length > 0 && (
+		<section class="pt-10">
+			<h2 class="mb-4 text-fine font-medium text-fg-muted uppercase">Writing</h2>
+			<ul>
+				{writing.map((post) => (
+					<li class="border-b border-border-soft last:border-b-0">
+						<a
+							href={post.href}
+							class="flex items-baseline justify-between gap-4 py-3.5 no-underline hover:opacity-60"
+						>
+							<span class="underline decoration-orange decoration-1 underline-offset-4">
+								{post.title}
+							</span>
+							<span class="flex-shrink-0 rounded-full border border-border bg-bg-subtle px-2.5 py-0.5 font-mono text-fine tracking-[0.08em] text-fg-muted uppercase">
+								{post.tag}
+							</span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}

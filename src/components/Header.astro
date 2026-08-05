@@ -1,0 +1,27 @@
+---
+import { person } from '../data/site';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<section>
+	<div class="mb-8 flex items-start justify-between gap-4">
+		<img
+			class="h-[5.5rem] w-[5.5rem] rounded-full object-cover"
+			src={person.avatar}
+			alt={person.name}
+			width="112"
+			height="112"
+		/>
+		<ThemeToggle />
+	</div>
+	<h1 class="text-h1 leading-snug font-semibold tracking-tight text-fg-strong">
+		{person.role}
+	</h1>
+	{
+		person.bio.map((paragraph) => (
+			<p class="mt-3 text-body text-fg [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-orange">
+				{paragraph}
+			</p>
+		))
+	}
+</section>

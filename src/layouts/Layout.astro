@@ -1,54 +1,62 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Luca Argentieri',
+	description = 'Senior Frontend Developer. I build fast, well-crafted web experiences with Nuxt, Sanity and Shopify.',
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Luca Argentieri</title>
-    <meta name="description" content="Luca Argentieri Portfolio" />
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Luca Argentieri" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet" />
-    <meta property="og:title" content="Luca Argentieri" />
-    <meta property="og:description" content="Luca Argentieri Portfolio" />
-    <meta property="og:image" content="https://lucaargentieri.github.io/og-image.png" />
-    <meta property="og:url" content="https://lucaargentieri.github.io/" />
-    <meta name="
-      twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@luca_argentieri" />
-    <meta name="twitter:title" content="Luca Argentieri" />
-    <meta name="twitter:description" content="Luca Argentieri Portfolio" />
-    <meta name="twitter:image" content="https://lucaargentieri.github.io/og-image.png" />
-  </head>
-  <body>
-    <slot />
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="author" content="Luca Argentieri" />
+		<meta name="robots" content="index, follow" />
+
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/og-image.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+
+		<script is:inline>
+			(() => {
+				const stored = localStorage.getItem('theme');
+				const theme =
+					stored === 'light' || stored === 'dark'
+						? stored
+						: window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
+				document.documentElement.dataset.theme = theme;
+			})();
+		</script>
+	</head>
+	<body>
+		<div
+			class="pointer-events-none fixed inset-x-0 top-0 z-50 h-20 bg-gradient-to-b from-black/10 to-transparent backdrop-blur-3xl [mask-image:linear-gradient(to_bottom,black,transparent)] dark:from-black/50"
+		>
+		</div>
+		<slot />
+		<div
+			class="pointer-events-none fixed inset-x-0 bottom-0 z-50 h-20 bg-gradient-to-t from-black/10 to-transparent backdrop-blur-3xl [mask-image:linear-gradient(to_top,black,transparent)] dark:from-black/50"
+		>
+		</div>
+	</body>
 </html>
-<style is:global>
-  :root {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .tiny5-regular {
-    font-family: "Tiny5", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  body {
-    font-family: "Tiny5", sans-serif;
-    font-size: 16px;
-    overscroll-behavior: none;
-    background-color: theme("colors.lightgray");
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
-</style>

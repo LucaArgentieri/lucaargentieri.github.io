@@ -1,0 +1,30 @@
+---
+import { experience } from '../data/site';
+---
+
+{
+	experience.length > 0 && (
+		<section class="pt-10">
+			<h2 class="mb-4 text-fine font-medium text-fg-muted uppercase">
+				Experience
+			</h2>
+			<div>
+				{experience.map((item) => (
+					<div class="flex items-baseline justify-between gap-4 border-b border-border-soft py-3.5 last:border-b-0">
+						<div>
+						<p class="text-fg-strong">
+							{item.company}
+						</p>
+						<p class="text-meta text-fg-muted">
+						{item.role}
+						</p>
+						</div>
+						<span class="flex-shrink-0 font-mono text-meta whitespace-nowrap text-fg-muted">
+							{item.start} — {item.end}
+						</span>
+					</div>
+				))}
+			</div>
+		</section>
+	)
+}
