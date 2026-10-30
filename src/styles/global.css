@@ -26,7 +26,7 @@
 	--text-h4: 1rem;
 	--text-body: 1rem;
 	--text-meta: 0.875rem;
-	--text-fine: 0.6875rem;
+	--text-fine: 0.75rem;
 }
 
 :root[data-theme='dark'] {
@@ -59,6 +59,19 @@
 
 	a {
 		color: inherit;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-orange);
+		outline-offset: 3px;
+		border-radius: 2px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			transition: none !important;
+			scroll-behavior: auto !important;
+		}
 	}
 
 	img,

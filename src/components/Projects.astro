@@ -2,8 +2,8 @@
 import { projects } from '../data/site';
 ---
 
-<section class="pt-10">
-	<h2 class="mb-4 text-fine font-medium text-fg-muted uppercase">Projects</h2>
+<section class="pt-10" aria-labelledby="projects-heading">
+	<h2 id="projects-heading" class="mb-4 text-fine font-medium text-fg-muted uppercase">Projects</h2>
 	<div class="flex flex-col">
 		{
 			projects.map((project) => (
@@ -21,7 +21,7 @@ import { projects } from '../data/site';
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						Visit website
+						Visit website<span class="sr-only"> {project.title} (opens in a new tab)</span>
 					</a>
 				</article>
 			))

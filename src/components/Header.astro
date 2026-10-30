@@ -8,14 +8,16 @@ import ThemeToggle from './ThemeToggle.astro';
 		<img
 			class="h-[5.5rem] w-[5.5rem] rounded-full object-cover"
 			src={person.avatar}
-			alt={person.name}
+			alt={`Portrait of ${person.name}`}
 			width="112"
 			height="112"
+			fetchpriority="high"
 		/>
 		<ThemeToggle />
 	</div>
 	<h1 class="text-h1 leading-snug font-semibold tracking-tight text-fg-strong">
-		{person.role}
+		{person.name}
+		<span class="block text-body font-normal text-fg-muted">{person.role}</span>
 	</h1>
 	{
 		person.bio.map((paragraph) => (

@@ -2,7 +2,8 @@
 import { person } from '../data/site';
 ---
 
-<footer class="flex flex-wrap justify-center gap-5">
+<footer>
+<nav aria-label="Contacts" class="flex flex-wrap justify-center gap-5">
 	<a class="text-meta text-fg-muted underline underline-offset-4 hover:opacity-60" href={`mailto:${person.links.email}`}>
 		email
 	</a>
@@ -12,7 +13,7 @@ import { person } from '../data/site';
 		target="_blank"
 		rel="noopener noreferrer"
 	>
-		github
+		github<span class="sr-only"> (opens in a new tab)</span>
 	</a>
 	<a
 		class="text-meta text-fg-muted underline underline-offset-4 hover:opacity-60"
@@ -20,6 +21,7 @@ import { person } from '../data/site';
 		target="_blank"
 		rel="noopener noreferrer"
 	>
-		linkedin
+		linkedin<span class="sr-only"> (opens in a new tab)</span>
 	</a>
+</nav>
 </footer>

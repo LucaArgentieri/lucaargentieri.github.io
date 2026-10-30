@@ -8,7 +8,7 @@ interface Props {
 }
 
 const {
-	title = 'Luca Argentieri',
+	title = 'Luca Argentieri — Senior Frontend Developer',
 	description = 'Senior Frontend Developer. I build fast, well-crafted web experiences with Nuxt, Sanity and Shopify.',
 } = Astro.props;
 
@@ -29,22 +29,35 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="author" content="Luca Argentieri" />
-		<meta name="robots" content="index, follow" />
+		<meta name="robots" content="index, follow, max-image-preview:large" />
+		<meta name="theme-color" content="#fdfdfc" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+		<meta name="color-scheme" content="light dark" />
+		<link rel="manifest" href="/site.webmanifest" />
 		<link rel="canonical" href={canonicalURL} />
 
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:site_name" content="Luca Argentieri" />
+		<meta property="og:locale" content="en_US" />
 		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="628" />
+		<meta property="og:image:alt" content="Luca Argentieri — Senior Frontend Developer" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImageURL} />
+		<meta name="twitter:image:alt" content="Luca Argentieri — Senior Frontend Developer" />
 
 		<script is:inline>
 			(() => {
-				const stored = localStorage.getItem('theme');
+				let stored = null;
+				try {
+					stored = localStorage.getItem('theme');
+				} catch {}
 				const theme =
 					stored === 'light' || stored === 'dark'
 						? stored
@@ -58,6 +71,12 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
 		<StructuredData />
 	</head>
 	<body>
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-md focus:bg-fg-strong focus:px-3 focus:py-2 focus:text-bg"
+		>
+			Skip to content
+		</a>
 		<div
 			aria-hidden="true"
 			class="pointer-events-none fixed inset-x-0 top-0 z-50 h-20 bg-gradient-to-b from-black/10 to-transparent backdrop-blur-3xl [mask-image:linear-gradient(to_bottom,black,transparent)] dark:from-black/50"
