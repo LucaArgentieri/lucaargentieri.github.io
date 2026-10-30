@@ -1,46 +1,89 @@
-# Astro Starter Kit: Basics
+# Luca Argentieri — Portfolio
 
-```sh
-bun create astro@latest -- --template basics
+Personal site of Luca Argentieri, Senior Frontend Developer.
+Live at **https://lucaargentieri.github.io**
+
+Built with [Astro](https://astro.build), Tailwind CSS 4 and Geist fonts, deployed to GitHub Pages.
+
+## Preview
+
+```text
+┌──────────────────────────────────────────────────────────────┐
+│                                                              │
+│   ╭─────╮                                              ( ☀ )  │
+│   │ :-) │                                                    │
+│   ╰─────╯                                                    │
+│                                                              │
+│   Luca Argentieri                                            │
+│   Senior Frontend Developer                                  │
+│                                                              │
+│   I develop web interfaces for diverse clients, with a       │
+│   strong focus on performance and accessibility.             │
+│   Solid experience with modern libraries, frameworks and     │
+│   CMS platforms, including Shopify e-commerce.               │
+│                                                              │
+│   EXPERIENCE                                                 │
+│   ────────────────────────────────────────────────────────   │
+│   Display Design Studio                         2021 — Present│
+│   Frontend Developer                                         │
+│                                                              │
+│   PROJECTS                                                   │
+│   ────────────────────────────────────────────────────────   │
+│   Gimatic  B2B Website                                       │
+│   Universal Music Italia: Shop Online                        │
+│   Alessi  E-commerce Development                             │
+│   Politecnico di Milano (7 Departments)                      │
+│   Acqua Fiuggi  Frontend & CMS                               │
+│                                                              │
+│   OPEN SOURCE · PINNED ON GITHUB                             │
+│   ┌───────────────────────────┐ ┌───────────────────────────┐│
+│   │ gsap-nuxt-module          │ │ nuxt-starter              ││
+│   │ GSAP module for Nuxt.     │ │ Nuxt 4 full-stack starter ││
+│   │ [gsap] [nuxt] [nuxt3]     │ │ [nuxt] [sanity]           ││
+│   │ ● Vue            ★ 37     │ │ ● TypeScript              ││
+│   └───────────────────────────┘ └───────────────────────────┘│
+│   ┌───────────────────────────┐ ┌───────────────────────────┐│
+│   │ firmereferendum-bot       │ │ vite-plugin-shopify-theme ││
+│   │ Telegram referendum bot   │ │ Vite plugin for Shopify   ││
+│   │ [telegram] [italia]       │ │ [hmr] [liquid] [shopify]  ││
+│   │ ● TypeScript              │ │ ● TypeScript              ││
+│   └───────────────────────────┘ └───────────────────────────┘│
+│                                                              │
+│   ──────────────────────────────────────────────────────     │
+│                  email   github   linkedin                   │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Pinned repositories
 
-## 🚀 Project Structure
+The *Open source* section shows the repositories pinned on the GitHub profile.
+They are fetched at build time from the GitHub GraphQL API (`src/lib/github.ts`) using `GITHUB_TOKEN`.
+If the token or the API is unavailable, the build falls back to the static list in `src/data/site.ts`.
+A scheduled workflow rebuilds the site daily so pins stay in sync.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── public/               favicons, og-image, robots.txt, manifest
+├── src/
+│   ├── components/       Header, Experience, Projects, OpenSource, Writing, Footer, ThemeToggle
+│   ├── data/site.ts      profile, experience, projects, fallback repos
+│   ├── layouts/          Layout.astro (SEO meta, theme, skip link)
+│   ├── lib/github.ts     pinned repos fetch
+│   ├── pages/index.astro
+│   └── styles/global.css design tokens, light/dark themes
+└── .github/workflows/    GitHub Pages deploy
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+| Command         | Action                                      |
+| :-------------- | :------------------------------------------ |
+| `bun install`   | Install dependencies                        |
+| `bun dev`       | Start the dev server at `localhost:4321`    |
+| `bun build`     | Build the production site to `./dist/`      |
+| `bun preview`   | Preview the build locally                   |
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Set `GITHUB_TOKEN` in your environment to fetch the real pinned repositories locally.
