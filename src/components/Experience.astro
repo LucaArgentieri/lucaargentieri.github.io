@@ -10,18 +10,24 @@ import { experience } from '../data/site';
 			</h2>
 			<div>
 				{experience.map((item) => (
-					<div class="flex items-baseline justify-between gap-4 border-b border-border-soft py-3.5 last:border-b-0">
-						<div>
-						<p class="text-fg-strong">
-							{item.company}
-						</p>
-						<p class="text-meta text-fg-muted">
-						{item.role}
-						</p>
+					<div class="border-b border-border-soft py-3.5 last:border-b-0">
+						<div class="flex items-baseline justify-between gap-4">
+							<div>
+								<p class="text-fg-strong">{item.company}</p>
+								<p class="text-meta text-fg-muted">{item.role}</p>
+							</div>
+							<span class="flex-shrink-0 font-mono text-meta whitespace-nowrap text-fg-muted">
+								{item.start} — {item.end}
+							</span>
 						</div>
-						<span class="flex-shrink-0 font-mono text-meta whitespace-nowrap text-fg-muted">
-							{item.start} — {item.end}
-						</span>
+						{item.description?.map((paragraph) => (
+							<p class="mt-3 text-fg">{paragraph}</p>
+						))}
+						{item.technologies && (
+							<p class="mt-3 font-mono text-meta text-fg-muted">
+								Technologies — {item.technologies}
+							</p>
+						)}
 					</div>
 				))}
 			</div>

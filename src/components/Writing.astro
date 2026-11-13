@@ -11,9 +11,9 @@ import { writing } from '../data/site';
 					<li class="border-b border-border-soft last:border-b-0">
 						<a
 							href={post.href}
-							class="flex items-baseline justify-between gap-4 py-3.5 no-underline hover:opacity-60"
+							class="group flex items-baseline justify-between gap-4 py-3.5 no-underline"
 						>
-							<span class="underline decoration-orange decoration-1 underline-offset-4">
+							<span class="underline decoration-accent/50 decoration-1 underline-offset-4 transition-[text-decoration-color] duration-200 ease-out group-hover:decoration-accent">
 								{post.title}
 							</span>
 							<span class="flex-shrink-0 rounded-full border border-border bg-bg-subtle px-2.5 py-0.5 font-mono text-fine tracking-[0.08em] text-fg-muted uppercase">

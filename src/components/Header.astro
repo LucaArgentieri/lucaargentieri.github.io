@@ -5,14 +5,7 @@ import ThemeToggle from './ThemeToggle.astro';
 
 <section>
 	<div class="mb-8 flex items-start justify-between gap-4">
-		<img
-			class="h-[5.5rem] w-[5.5rem] rounded-full object-cover"
-			src={person.avatar}
-			alt={`Portrait of ${person.name}`}
-			width="112"
-			height="112"
-			fetchpriority="high"
-		/>
+		<div id="marker" class="h-[5.5rem] w-[5.5rem] rounded-[22%] [corner-shape:squircle] bg-accent" aria-hidden="true"></div>
 		<ThemeToggle />
 	</div>
 	<h1 class="text-h1 leading-snug font-semibold tracking-tight text-fg-strong">
@@ -21,9 +14,30 @@ import ThemeToggle from './ThemeToggle.astro';
 	</h1>
 	{
 		person.bio.map((paragraph) => (
-			<p class="mt-3 text-body text-fg [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-orange">
+			<p class="mt-3 text-body text-fg [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-accent">
 				{paragraph}
 			</p>
 		))
 	}
 </section>
+
+<style>
+	/* Drag the square: it follows the pointer, leans, leaves a trail, then goes home. See scripts/marker.ts */
+	#marker {
+		/* Above the trail canvas, so the square reads as the head of its own trail. */
+		position: relative;
+		z-index: 45;
+		cursor: grab;
+		touch-action: none;
+		user-select: none;
+		-webkit-user-select: none;
+		-webkit-touch-callout: none;
+	}
+	#marker[data-mode='drag'] {
+		cursor: grabbing;
+	}
+</style>
+
+<script>
+	import '../scripts/marker';
+</script>

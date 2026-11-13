@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import StructuredData from '../components/StructuredData.astro';
+import { person } from '../data/site';
 
 interface Props {
 	title?: string;
@@ -8,12 +9,13 @@ interface Props {
 }
 
 const {
-	title = 'Luca Argentieri — Senior Frontend Developer',
-	description = 'Senior Frontend Developer. I build fast, well-crafted web experiences with Nuxt, Sanity and Shopify.',
+	title = 'Luca Argentieri',
+	description = `${person.role}. I build fast, well-crafted web experiences with Nuxt, Sanity and Shopify.`,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL('/og-image.png', Astro.site);
+const ogImageAlt = `${person.name} — ${person.role}`;
 ---
 
 <!doctype html>
@@ -31,7 +33,7 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
 		<meta name="author" content="Luca Argentieri" />
 		<meta name="robots" content="index, follow, max-image-preview:large" />
 		<meta name="theme-color" content="#fdfdfc" media="(prefers-color-scheme: light)" />
-		<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)" />
 		<meta name="color-scheme" content="light dark" />
 		<link rel="manifest" href="/site.webmanifest" />
 		<link rel="canonical" href={canonicalURL} />
@@ -45,12 +47,12 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
 		<meta property="og:image" content={ogImageURL} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="628" />
-		<meta property="og:image:alt" content="Luca Argentieri — Senior Frontend Developer" />
+		<meta property="og:image:alt" content={ogImageAlt} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImageURL} />
-		<meta name="twitter:image:alt" content="Luca Argentieri — Senior Frontend Developer" />
+		<meta name="twitter:image:alt" content={ogImageAlt} />
 
 		<script is:inline>
 			(() => {
@@ -65,12 +67,21 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
 							? 'dark'
 							: 'light';
 				document.documentElement.dataset.theme = theme;
+				// Mirrors --color-bg. Keeps the browser chrome in sync with the manual
+				// toggle, not just the OS setting.
+				window.__setThemeColor = (t) => {
+					document.querySelectorAll('meta[name="theme-color"]').forEach((m) => {
+						m.removeAttribute('media');
+						m.setAttribute('content', t === 'dark' ? '#1b1a18' : '#fdfdfc');
+					});
+				};
+				window.__setThemeColor(theme);
 			})();
 		</script>
 
 		<StructuredData />
 	</head>
-	<body>
+	<body class="relative">
 		<a
 			href="#main"
 			class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-md focus:bg-fg-strong focus:px-3 focus:py-2 focus:text-bg"
@@ -79,13 +90,13 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
 		</a>
 		<div
 			aria-hidden="true"
-			class="pointer-events-none fixed inset-x-0 top-0 z-50 h-20 bg-gradient-to-b from-black/10 to-transparent backdrop-blur-3xl [mask-image:linear-gradient(to_bottom,black,transparent)] dark:from-black/50"
+			class="pointer-events-none fixed inset-x-0 top-0 z-50 h-12 edge-fade-top"
 		>
 		</div>
 		<slot />
 		<div
 			aria-hidden="true"
-			class="pointer-events-none fixed inset-x-0 bottom-0 z-50 h-20 bg-gradient-to-t from-black/10 to-transparent backdrop-blur-3xl [mask-image:linear-gradient(to_top,black,transparent)] dark:from-black/50"
+			class="pointer-events-none fixed inset-x-0 bottom-0 z-50 h-12 edge-fade-bottom"
 		>
 		</div>
 	</body>

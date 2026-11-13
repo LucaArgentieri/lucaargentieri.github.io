@@ -1,15 +1,17 @@
 export const person = {
 	name: 'Luca Argentieri',
-	role: 'Senior Frontend Developer',
+	role: 'Product Engineer',
 	avatar: '/avatar.jpg',
 	bio: [
-		'I develop web interfaces for diverse clients, with a strong focus on performance and accessibility.',
-		"I have solid experience with modern libraries, frameworks, and CMS platforms, including e-commerce solutions built with Shopify. I specialize in creative coding and high-quality user experiences, and I actively contribute to open-source projects while staying up to date with emerging technologies and industry trends.",
+		'I build web products, developer tools and AI-powered workflows, with a background in frontend engineering and a focus on performance, accessibility and developer experience.',
+		'My work spans frontend architecture, e-commerce platforms and AI-driven applications. I enjoy exploring how emerging technologies can improve the way we design, build and interact with software.',
+		"I'm particularly interested in creative development, open-source software and the evolution of software engineering through AI.",
 	],
 	links: {
 		email: 'lucaargentieri98@gmail.com',
 		github: 'https://github.com/LucaArgentieri',
 		linkedin: 'https://www.linkedin.com/in/luca-argentieri/',
+		x: 'https://x.com/luca_argentieri',
 	},
 };
 
@@ -18,11 +20,24 @@ export type Experience = {
 	company: string;
 	start: string;
 	end: string;
+	description?: string[];
+	technologies?: string;
 };
 
 // Placeholder — replace with your real work history.
 export const experience: Experience[] = [
-	{ role: 'Frontend Developer', company: 'Display Design Studio', start: '2021', end: 'Present' },
+	{
+		role: 'Frontend Developer',
+		company: 'Display Design Studio',
+		start: '2021',
+		end: 'Present',
+		description: [
+			'Developing digital products, e-commerce platforms and custom web applications.',
+			'Working across frontend architecture, Shopify development, CMS integrations, developer tooling and AI-powered workflows.',
+			'Building internal tools to improve team workflows, defining AI skills and processes, and generating UI with Figma.',
+		],
+		technologies: 'Vue, Nuxt, TypeScript, Shopify, Sanity, AI/LLM integrations',
+	},
 ];
 
 export type Project = {

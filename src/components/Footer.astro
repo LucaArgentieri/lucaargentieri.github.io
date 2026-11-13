@@ -2,13 +2,13 @@
 import { person } from '../data/site';
 ---
 
-<footer>
+<footer class="pt-10">
 <nav aria-label="Contacts" class="flex flex-wrap justify-center gap-5">
-	<a class="text-meta text-fg-muted underline underline-offset-4 hover:opacity-60" href={`mailto:${person.links.email}`}>
+	<a class="text-meta text-fg-muted underline decoration-accent/50 underline-offset-4 transition-[text-decoration-color] duration-200 ease-out hover:decoration-accent" href={`mailto:${person.links.email}`}>
 		email
 	</a>
 	<a
-		class="text-meta text-fg-muted underline underline-offset-4 hover:opacity-60"
+		class="text-meta text-fg-muted underline decoration-accent/50 underline-offset-4 transition-[text-decoration-color] duration-200 ease-out hover:decoration-accent"
 		href={person.links.github}
 		target="_blank"
 		rel="noopener noreferrer"
@@ -16,12 +16,20 @@ import { person } from '../data/site';
 		github<span class="sr-only"> (opens in a new tab)</span>
 	</a>
 	<a
-		class="text-meta text-fg-muted underline underline-offset-4 hover:opacity-60"
+		class="text-meta text-fg-muted underline decoration-accent/50 underline-offset-4 transition-[text-decoration-color] duration-200 ease-out hover:decoration-accent"
 		href={person.links.linkedin}
 		target="_blank"
 		rel="noopener noreferrer"
 	>
 		linkedin<span class="sr-only"> (opens in a new tab)</span>
+	</a>
+	<a
+		class="text-meta text-fg-muted underline decoration-accent/50 underline-offset-4 transition-[text-decoration-color] duration-200 ease-out hover:decoration-accent"
+		href={person.links.x}
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		x<span class="sr-only"> (opens in a new tab)</span>
 	</a>
 </nav>
 </footer>

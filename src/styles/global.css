@@ -15,7 +15,9 @@
 	--color-fg-muted: #6b6a63;
 	--color-border: #e6e5e1;
 	--color-border-soft: #ececea;
-	--color-orange: #e53d00;
+	--color-accent: #e53d00;
+	--color-accent-solid: #d63700;
+	--color-accent-on: #ffffff;
 
 	--font-sans: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 	--font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -30,13 +32,13 @@
 }
 
 :root[data-theme='dark'] {
-	--color-bg: #1a1a1a;
-	--color-bg-subtle: #232323;
+	--color-bg: #1b1a18;
+	--color-bg-subtle: #242321;
 	--color-fg: #e2e1dc;
 	--color-fg-strong: #f7f6f2;
-	--color-fg-muted: #8e8d86;
-	--color-border: #303030;
-	--color-border-soft: #2a2a2a;
+	--color-fg-muted: #b9b8b0;
+	--color-border: #31302e;
+	--color-border-soft: #2a2927;
 }
 
 @layer base {
@@ -61,15 +63,21 @@
 		color: inherit;
 	}
 
+	::selection {
+		background-color: var(--color-accent-solid);
+		color: var(--color-accent-on);
+	}
+
 	:focus-visible {
-		outline: 2px solid var(--color-orange);
+		outline: 2px solid var(--color-accent);
 		outline-offset: 3px;
 		border-radius: 2px;
 	}
 
+	/* Reduced motion removes movement and blur, not feedback: colour and
+	   opacity changes stay (see ThemeToggle for the icon swap). */
 	@media (prefers-reduced-motion: reduce) {
 		* {
-			transition: none !important;
 			scroll-behavior: auto !important;
 		}
 	}
@@ -78,5 +86,28 @@
 	video {
 		max-width: 100%;
 		display: block;
+	}
+}
+
+/* Very light edge fades (top/bottom of the viewport): the background colour at
+   up to 60% opacity, easing out with a soft curve (alpha ~ 0.6 * (1 - t)^2). */
+@layer components {
+	.edge-fade-top,
+	.edge-fade-bottom {
+		--edge-fade: linear-gradient(
+			var(--edge-fade-dir),
+			color-mix(in oklab, var(--color-bg) 60%, transparent) 0%,
+			color-mix(in oklab, var(--color-bg) 34%, transparent) 25%,
+			color-mix(in oklab, var(--color-bg) 15%, transparent) 50%,
+			color-mix(in oklab, var(--color-bg) 4%, transparent) 75%,
+			transparent 100%
+		);
+		background-image: var(--edge-fade);
+	}
+	.edge-fade-top {
+		--edge-fade-dir: to bottom;
+	}
+	.edge-fade-bottom {
+		--edge-fade-dir: to top;
 	}
 }
