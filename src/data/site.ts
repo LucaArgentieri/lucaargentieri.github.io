@@ -1,11 +1,11 @@
 export const person = {
 	name: 'Luca Argentieri',
-	role: 'Product Engineer',
+	role: 'Frontend Engineer',
 	avatar: '/avatar.jpg',
 	bio: [
-		'I build web products, developer tools and AI-powered workflows, with a background in frontend engineering and a focus on performance, accessibility and developer experience.',
-		'My work spans frontend architecture, e-commerce platforms and AI-driven applications. I enjoy exploring how emerging technologies can improve the way we design, build and interact with software.',
-		"I'm particularly interested in creative development, open-source software and the evolution of software engineering through AI.",
+		'I build web products, developer tools and AI-powered workflows, with a background in frontend engineering and a broader interest in software architecture, developer experience and AI-assisted software development.',
+		'My work spans frontend architecture, e-commerce platforms, internal tools and AI-driven applications. I enjoy exploring how technologies, engineering practices and AI can improve the way we design, build and interact with software.',
+		"I'm particularly interested in creative development, open-source software and the evolving relationship between software engineering and AI.",
 	],
 	links: {
 		email: 'lucaargentieri98@gmail.com',
